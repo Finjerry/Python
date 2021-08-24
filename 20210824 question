@@ -1,0 +1,20 @@
+class addkeyword:
+    def __init__(self):
+        self.companylist = [
+            'company', 'companies',
+            'manufacturer', 'manufacturers',
+            'supplier', 'suppliers']
+        self.develop = [
+            'developing', 'develop',
+            'building', 'build',
+            'design']
+    def combine(self,addkeywordtype ,core, place):
+        """
+        addkeywordtype = 在__init__ 設是的 develop 系列 或 company系列
+        place = 加在前面或後面. 前面=front, 後面=back
+        core = 核心字詞
+        """
+        for x in core:
+            for y in locals()[str('self.')+str(addkeywordtype)]:
+                if core == 'font':
+                    print(y+str(' ')+x)
