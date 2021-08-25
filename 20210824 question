@@ -18,3 +18,36 @@ class addkeyword:
             for y in locals()[str('self.')+str(addkeywordtype)]:
                 if core == 'font':
                     print(y+str(' ')+x)
+
+
+class addkeyword_edit:
+    def __init__(self):
+        # 改用dict包裝
+        self.keywordlist= {
+            'company':
+            ['company', 'companies',
+            'manufacturer', 'manufacturers',
+            'supplier', 'suppliers']
+            ,
+            'develop':[
+            'developing', 'develop',
+            'building', 'build',
+            'design',
+            'create']
+        }
+        
+    def combine(self,addkey ,core, place):
+        """
+        addkey = 叫出 self.keywordlist，看是用哪一個系列
+        place = 加在前面或後面. 前面=front, 後面=back
+        core = 核心關鍵字
+        """
+        result = []
+        for x in core:
+            for y in self.keywordlist[addkey]:
+#             for y in exec(str('self.')+str(addkeywordtype)): 原始是用這一段失敗，改用dic
+                if place == 'front':
+                    result.append(y+str(' ')+x)
+                if place == 'back':
+                    result.append(x+str(' ')+y)
+        return result
